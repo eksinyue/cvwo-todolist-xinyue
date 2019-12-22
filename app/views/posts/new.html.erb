@@ -1,0 +1,24 @@
+<div class="header">
+<div class="container">
+  <h1> My Todo List :,) </h1>
+</div>
+</div>
+
+<div class="main">
+<div class="container">
+
+  <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <p>did u forget what u need to do today??</p>
+      </div>
+
+      <%= form_with scope: :post, local: true do |p| %>  
+        <%= p.text_field :task, :placeholder => "i need to ..." %>
+        <%= p.submit "+", :class => 'btn' %> 
+      <% end %>
+
+    <% end %>
+
+</div>
+</div>
+

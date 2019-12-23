@@ -4,8 +4,8 @@ import PropTypes from "prop-types"
 const Header = (props) => {
   return(
     
-  <div class="header">
-    <div class="container">
+  <div className="header">
+    <div className="container">
       <h1> My Todo List :,) </h1>
     </div>
   </div>

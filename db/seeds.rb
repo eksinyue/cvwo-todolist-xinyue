@@ -7,4 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-posts = Post.create([{ task: 'Star Wars' }, { task: 'Lord of the Rings' }])
+json = ActiveSupport::JSON.decode(File.read('db/seeds/todos.json'))
+json.each do |record|
+  Todo.create!(record)
+end

@@ -1,0 +1,22 @@
+[
+    {
+      "todo_type": "Symposium",
+      "todo_date": "2018-05-01",
+      "done": true
+    },
+    {
+      "todo_type": "Colloquium",
+      "todo_date": "2018-04-01",
+      "done": true
+    },
+    {
+      "todo_type": "Symposium",
+      "todo_date": "2018-04-01",
+      "done": true
+    },
+    {
+      "todo_type": "Colloquium",
+      "todo_date": "2017-05-01",
+      "done": true
+    }
+  ]

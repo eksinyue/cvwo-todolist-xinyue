@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_22_091759) do
+ActiveRecord::Schema.define(version: 2019_12_23_081314) do
 
   create_table "notes", force: :cascade do |t|
     t.string "subtask"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 2019_12_22_091759) do
 
   create_table "posts", force: :cascade do |t|
     t.string "task"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "todos", force: :cascade do |t|
+    t.string "todo_type"
+    t.date "todo_date"
+    t.boolean "done"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

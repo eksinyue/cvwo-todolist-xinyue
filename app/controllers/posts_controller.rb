@@ -43,8 +43,39 @@ class PostsController < ApplicationController
         redirect_to posts_path
     end
 
-    private 
+    private
+  
     def post_params 
         params.require(:post).permit(:task, posts_attributes: [:task, :id, :_destroy]) 
     end
+    
 end
+
+=begin
+class PostsController < ApplicationController
+    def index
+      render json: Post.all
+    end
+  
+    def create
+      post = Post.create(post_params)
+      render json: post
+    end
+  
+    def destroy
+      Post.destroy(params[:id])
+    end
+  
+    def update
+      post = Pruit.find(params[:id])
+      post.update_attributes(post_params)
+      render json: post
+    end
+  
+    private
+  
+    def post_params 
+        params.require(:post).permit(:task, posts_attributes: [:task, :id, :_destroy]) 
+    end
+  end
+=end

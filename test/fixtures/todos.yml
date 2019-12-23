@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  todo_type: MyString
+  todo_date: 2019-12-23
+
+two:
+  todo_type: MyString
+  todo_date: 2019-12-23

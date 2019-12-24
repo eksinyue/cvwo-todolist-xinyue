@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 class TodoList extends React.Component {
+
   renderTodos() {
     const { todos } = this.props;
     todos.sort(
@@ -10,19 +12,25 @@ class TodoList extends React.Component {
 
     return todos.map(todo => (
       <li key={todo.id}>
-        {todo.todo_date}
-        {' - '}
-        {todo.todo_type}
+        <Link to={`/todos/${todo.id}`}>
+          {todo.todo_date}
+          {' - '}
+          {todo.todo_type}
+        </Link>
       </li>
     ));
   }
 
   render() {
     return (
-      <section>
+
+      <div className="main"><div className="container">
         <h2>Todos</h2>
-        <ul>{this.renderTodos()}</ul>
-      </section>
+        <ul>
+        {this.renderTodos()}
+        </ul>
+      </div></div>
+      
     );
   }
 }

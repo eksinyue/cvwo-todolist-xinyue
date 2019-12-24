@@ -1,17 +1,15 @@
-import React from "react"
-import PropTypes from "prop-types"
-import Header from './Header'
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Editor from './Editor';
 
 
-const Main = (props) => {
-  return(
-    <div>
-      <Header /> 
-      <Editor />
-    </div>
-  )
-}
-
+const Main = () => (
+  <BrowserRouter>
+  <div>
+    <Route path="/todos/:id?" component={Editor} />
+  </div>
+  </BrowserRouter>
+);
 
 export default Main

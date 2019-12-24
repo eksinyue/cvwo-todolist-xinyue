@@ -37,10 +37,10 @@ class Editor extends React.Component {
         success('New Todo Added!');
         const savedTodo = response.data;
         this.setState(prevState => ({
-          events: [...prevState.events, savedTodo],
+          todos: [...prevState.todos, savedTodo],
         }));
         const { history } = this.props;
-        history.push(`/todos/${savedEvent.id}`);
+        history.push(`/todos/${savedTodo.id}`);
       })
       .catch(handleAjaxError);
   }

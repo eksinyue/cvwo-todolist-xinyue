@@ -34,12 +34,17 @@ class TodoForm extends React.Component {
   componentDidMount() {
     new Pikaday({
       field: this.dateInput.current,
+      toString: date => formatDate(date),
       onSelect: (date) => {
         const formattedDate = formatDate(date);
         this.dateInput.current.value = formattedDate;
         this.updateTodo('todo_date', formattedDate);
       },
     });
+  }
+
+  UNSAFE_componentWillReceiveProps({ todo }) {
+    this.setState({ todo });
   }
 
   updateTodo(key, value) {
@@ -87,7 +92,8 @@ class TodoForm extends React.Component {
             <label htmlFor="todo_type">
               <strong>Type:</strong>
               <input type="text" id="todo_type" name="todo_type"
-                    onChange={this.handleInputChange} />
+                    onChange={this.handleInputChange}
+                     />
             </label>
           </div>
 
@@ -100,6 +106,8 @@ class TodoForm extends React.Component {
                 name="todo_date"
                 ref={this.dateInput}
                 autoComplete="off"
+                
+                onChange={this.handleInputChange}
                 />
             </label>
           </div>
@@ -108,7 +116,8 @@ class TodoForm extends React.Component {
             <label htmlFor="done">
               <strong>Done:</strong>
               <input type="checkbox" id="done" name="done" 
-                    onChange={this.handleInputChange}/>
+                    onChange={this.handleInputChange}
+                    />
             </label>
           </div>
           <div className="form-actions">

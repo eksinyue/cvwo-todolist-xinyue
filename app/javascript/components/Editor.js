@@ -20,6 +20,7 @@ class Editor extends React.Component {
 
     this.addTodo = this.addTodo.bind(this);
     this.deleteTodo = this.deleteTodo.bind(this);
+    this.updateTodo = this.updateTodo.bind(this);
   }
 
   componentDidMount() {
@@ -63,6 +64,21 @@ class Editor extends React.Component {
     }
   }
 
+  updateTodo(updatedTodo) {
+    axios
+      .put(`/api/todos/${updatedTodo.id}.json`, updatedTodo)
+      .then(() => {
+        success('Todo updated');
+        const { todos } = this.state;
+        const idx = todos.findIndex(todo => todo.id === updatedTodo.id);
+        todos[idx] = updatedTodo;
+        const { history } = this.props;
+        history.push(`/todos/${updatedTodo.id}`);
+        this.setState({ todos });
+      })
+      .catch(handleAjaxError);
+  }
+
   render() {
     const { todos } = this.state;
     if (todos === null) return null;
@@ -78,8 +94,20 @@ class Editor extends React.Component {
           <TodoList todos={todos} activeId={Number(todoId)}/>
           <Switch>
               <PropsRoute path="/todos/new" component={TodoForm} onSubmit={this.addTodo} />
-              <PropsRoute path="/todos/:id" component={Todo} todo={todo}
-                          onDelete={this.deleteTodo}/>
+        
+               <PropsRoute
+              exact
+              path="/todos/:id/edit"
+              component={TodoForm}
+              todo={todo}
+              onSubmit={this.updateTodo}
+            />
+            <PropsRoute
+              path="/todos/:id"
+              component={Todo}
+              todo={todo}
+              onDelete={this.deleteTodo}
+            />
           </Switch>
         </div>
       </div>

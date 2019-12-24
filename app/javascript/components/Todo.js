@@ -9,9 +9,8 @@ const Todo = ({ todo, onDelete }) => (
       {' - '}
       {todo.todo_type}
       {"  "}
-      <button className="delete" type="button" onClick={() => onDelete(todo.id)}>
-        Delete
-      </button>
+      <Link to={`/todos/${todo.id}/edit`}> ✎ </Link>
+      <button className="delete" type="button" onClick={() => onDelete(todo.id)}> ✖ </button>
     </h2>
     <ul>
       <li>

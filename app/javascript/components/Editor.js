@@ -15,12 +15,31 @@ class Editor extends React.Component {
     this.state = {
       todos: null,
     };
+
+    this.addTodo = this.addTodo.bind(this);
   }
 
   componentDidMount() {
     axios
       .get('/api/todos.json')
       .then(response => this.setState({ todos: response.data }))
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  addTodo(newTodo) {
+    axios
+      .post('/api/todos.json', newTodo)
+      .then((response) => {
+        alert('New Todo Added!');
+        const savedTodo = response.data;
+        this.setState(prevState => ({
+          events: [...prevState.events, savedTodo],
+        }));
+        const { history } = this.props;
+        history.push(`/todos/${savedEvent.id}`);
+      })
       .catch((error) => {
         console.log(error);
       });
@@ -40,7 +59,7 @@ class Editor extends React.Component {
         <div className="grid">
           <TodoList todos={todos} activeId={Number(todoId)}/>
           <Switch>
-              <PropsRoute path="/todos/new" component={TodoForm} />
+              <PropsRoute path="/todos/new" component={TodoForm} onSubmit={this.addTodo} />
               <PropsRoute path="/todos/:id" component={Todo} todo={todo} />
           </Switch>
         </div>
@@ -50,7 +69,8 @@ class Editor extends React.Component {
 }
 
 Editor.propTypes = {
-match: PropTypes.shape(),
+  match: PropTypes.shape(),
+  history: PropTypes.shape({ push: PropTypes.func }).isRequired,
 };
 
 Editor.defaultProps = {

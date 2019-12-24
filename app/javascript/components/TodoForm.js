@@ -22,10 +22,12 @@ class TodoForm extends React.Component {
     e.preventDefault();
     const { todo } = this.state;
     const errors = validateTodo(todo);
+
     if (!isEmptyObject(errors)) {
       this.setState({ errors });
     } else {
-      console.log(todo);
+      const { onSubmit } = this.props;
+      onSubmit(todo);
     }
   }
   
@@ -120,14 +122,15 @@ class TodoForm extends React.Component {
 
 TodoForm.propTypes = {
     todo: PropTypes.shape(),
+    onSubmit: PropTypes.func.isRequired,
   };
   
-  TodoForm.defaultProps = {
-    todo: {
-      todo_type: '',
-      todo_date: '',
-      done: false,
-    },
-  };
+TodoForm.defaultProps = {
+todo: {
+    todo_type: '',
+    todo_date: '',
+    done: false,
+},
+};
 
 export default TodoForm;

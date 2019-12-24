@@ -14,23 +14,9 @@ class TodoForm extends React.Component {
       };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
-
     this.dateInput = React.createRef();
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const { todo } = this.state;
-    const errors = validateTodo(todo);
-
-    if (!isEmptyObject(errors)) {
-      this.setState({ errors });
-    } else {
-      const { onSubmit } = this.props;
-      onSubmit(todo);
-    }
-  }
-  
   componentDidMount() {
     new Pikaday({
       field: this.dateInput.current,
@@ -47,6 +33,19 @@ class TodoForm extends React.Component {
     this.setState({ todo });
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    const { todo } = this.state;
+    const errors = validateTodo(todo);
+
+    if (!isEmptyObject(errors)) {
+      this.setState({ errors });
+    } else {
+      const { onSubmit } = this.props;
+      onSubmit(todo);
+    }
+  }
+  
   updateTodo(key, value) {
     this.setState(prevState => ({
       todo: {
@@ -83,16 +82,23 @@ class TodoForm extends React.Component {
   }
 
   render() {
+    const { todo } = this.state;
+    const { path } = this.props;
+    const title = todo.id ? `${todo.todo_date} - ${todo.todo_type}` : 'New Event';
+
     return (
       <div>
-        <h2>New Todo</h2>
+        <h2>{title}</h2>
+
         {this.renderErrors()}
+
         <form className="todoform" onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="todo_type">
               <strong>Type:</strong>
               <input type="text" id="todo_type" name="todo_type"
                     onChange={this.handleInputChange}
+                    value={todo.todo_type}
                      />
             </label>
           </div>
@@ -106,7 +112,7 @@ class TodoForm extends React.Component {
                 name="todo_date"
                 ref={this.dateInput}
                 autoComplete="off"
-                
+                value={todo.todo_date}
                 onChange={this.handleInputChange}
                 />
             </label>
@@ -117,6 +123,7 @@ class TodoForm extends React.Component {
               <strong>Done:</strong>
               <input type="checkbox" id="done" name="done" 
                     onChange={this.handleInputChange}
+                    checked={todo.done}
                     />
             </label>
           </div>

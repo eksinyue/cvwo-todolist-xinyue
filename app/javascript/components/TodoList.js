@@ -5,14 +5,14 @@ import PropTypes from 'prop-types';
 class TodoList extends React.Component {
 
   renderTodos() {
-    const { todos } = this.props;
+    const { activeId, todos } = this.props;
     todos.sort(
       (a, b) => new Date(b.todo_date) - new Date(a.todo_date),
     );
 
     return todos.map(todo => (
       <li key={todo.id}>
-        <Link to={`/todos/${todo.id}`}>
+        <Link to={`/todos/${todo.id}`} className={activeId === todo.id ? 'active' : ''}>
           {todo.todo_date}
           {' - '}
           {todo.todo_type}
@@ -24,7 +24,7 @@ class TodoList extends React.Component {
   render() {
     return (
 
-      <div className="main"><div className="container">
+      <div className="main"><div className="todolist">
         <h2>Todos</h2>
         <ul>
         {this.renderTodos()}
@@ -36,10 +36,12 @@ class TodoList extends React.Component {
 }
 
 TodoList.propTypes = {
+  activeId: PropTypes.number,
   todos: PropTypes.arrayOf(PropTypes.object),
 };
 
 TodoList.defaultProps = {
+  activeId: undefined,
   todos: [],
 };
 

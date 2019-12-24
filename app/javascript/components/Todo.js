@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Todo = ({ todo }) => (
-    <div className="main"><div className="container">
+    <div className="main"><div className="todo">
     <h2>
       {todo.todo_date}
       {' - '}

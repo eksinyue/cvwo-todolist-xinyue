@@ -35,8 +35,10 @@ class Editor extends React.Component {
     return (
       <div>
         <Header />
-        <TodoList todos={todos} />
+        <div className="grid">
+        <TodoList todos={todos} activeId={Number(todoId)}/>
         <PropsRoute path="/todos/:id" component={Todo} todo={todo} />
+        </div>
       </div>
     );
   }

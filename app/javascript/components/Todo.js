@@ -2,12 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const Todo = ({ todo }) => (
+const Todo = ({ todo, onDelete }) => (
     <div className="main"><div className="todo">
     <h2>
       {todo.todo_date}
       {' - '}
       {todo.todo_type}
+      {"  "}
+      <button className="delete" type="button" onClick={() => onDelete(todo.id)}>
+        Delete
+      </button>
     </h2>
     <ul>
       <li>
@@ -32,6 +36,7 @@ const Todo = ({ todo }) => (
 
 Todo.propTypes = {
   todo: PropTypes.shape(),
+  onDelete: PropTypes.func.isRequired,
 };
 
 Todo.defaultProps = {

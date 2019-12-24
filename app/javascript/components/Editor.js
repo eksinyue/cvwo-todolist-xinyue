@@ -17,6 +17,7 @@ class Editor extends React.Component {
     };
 
     this.addTodo = this.addTodo.bind(this);
+    this.deleteTodo = this.deleteTodo.bind(this);
   }
 
   componentDidMount() {
@@ -45,6 +46,27 @@ class Editor extends React.Component {
       });
   }
 
+  deleteTodo(todoId) {
+    const sure = window.confirm('Are you sure?');
+    if (sure) {
+      axios
+        .delete(`/api/todos/${todoId}.json`)
+        .then((response) => {
+          if (response.status === 204) {
+            alert('Todo deleted');
+            const { history } = this.props;
+            history.push('/todos');
+
+            const { todos } = this.state;
+            this.setState({ todos: todos.filter(todo => todo.id !== todoId) });
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }
+
   render() {
     const { todos } = this.state;
     if (todos === null) return null;
@@ -60,7 +82,8 @@ class Editor extends React.Component {
           <TodoList todos={todos} activeId={Number(todoId)}/>
           <Switch>
               <PropsRoute path="/todos/new" component={TodoForm} onSubmit={this.addTodo} />
-              <PropsRoute path="/todos/:id" component={Todo} todo={todo} />
+              <PropsRoute path="/todos/:id" component={Todo} todo={todo}
+                          onDelete={this.deleteTodo}/>
           </Switch>
         </div>
       </div>

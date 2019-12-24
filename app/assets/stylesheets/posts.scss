@@ -37,7 +37,7 @@ h1 {
 }
 
 form {
-    margin:0 0 100px;
+    margin:0 0 5px;
 }
 
 form input[type=text] {
@@ -47,7 +47,8 @@ form input[type=text] {
     font-size:27px;
     font-family:Montserrat, sans-serif;
     transition:background 2s border-left 2s;
-    padding:20px;
+    padding: 20px;
+
 }
 
 form input[type=text]:focus {
@@ -56,6 +57,13 @@ form input[type=text]:focus {
     box-shadow:none;
     outline:none;
     transition:background 2s border-left 2s;
+}
+
+.searchbar input[type=text] {
+    max-width: 450px;
+    padding: 15px;
+    font-size: 20px;
+    margin: 0 0 30px;
 }
 
 button.btn,.btn {
@@ -277,12 +285,14 @@ label > strong {
   font-size: 15px;
 }
 
+
 input, textarea {
   padding: 2px 0 3px 3px;
-  width: 400px;
+  width: 500px;
   margin-bottom: 15px;
   box-sizing: border-box;
 }
+
 
 input[type="checkbox"] {
   width: 13px;
@@ -361,8 +371,4 @@ h2 a:hover {
   text-decoration: underline;
 }
 
-input.search {
-  width: 92%;
-  margin: 15px 2px;
-  padding: 4px 0 6px 6px;
-}
+

@@ -7,6 +7,8 @@ import PropsRoute from './PropsRoute';
 import Todo from './Todo';
 import { Switch } from 'react-router-dom';
 import TodoForm from './TodoForm';
+import { success } from '../helpers/notifications';
+import { handleAjaxError } from '../helpers/helpers';
 
 class Editor extends React.Component {
   constructor(props) {
@@ -24,16 +26,14 @@ class Editor extends React.Component {
     axios
       .get('/api/todos.json')
       .then(response => this.setState({ todos: response.data }))
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch(handleAjaxError);
   }
 
   addTodo(newTodo) {
     axios
       .post('/api/todos.json', newTodo)
       .then((response) => {
-        alert('New Todo Added!');
+        success('New Todo Added!');
         const savedTodo = response.data;
         this.setState(prevState => ({
           events: [...prevState.events, savedTodo],
@@ -41,9 +41,7 @@ class Editor extends React.Component {
         const { history } = this.props;
         history.push(`/todos/${savedEvent.id}`);
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch(handleAjaxError);
   }
 
   deleteTodo(todoId) {
@@ -53,7 +51,7 @@ class Editor extends React.Component {
         .delete(`/api/todos/${todoId}.json`)
         .then((response) => {
           if (response.status === 204) {
-            alert('Todo deleted');
+            success('Todo deleted');
             const { history } = this.props;
             history.push('/todos');
 
@@ -61,9 +59,7 @@ class Editor extends React.Component {
             this.setState({ todos: todos.filter(todo => todo.id !== todoId) });
           }
         })
-        .catch((error) => {
-          console.log(error);
-        });
+        .catch(handleAjaxError);
     }
   }
 

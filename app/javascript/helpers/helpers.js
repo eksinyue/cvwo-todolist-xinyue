@@ -1,3 +1,6 @@
+import { error } from './notifications';
+
+
 export const formatDate = (d) => {
     const YYYY = d.getFullYear();
     const MM = `0${d.getMonth() + 1}`.slice(-2);
@@ -17,3 +20,8 @@ export const formatDate = (d) => {
   
     return errors;
   }
+
+  export const handleAjaxError = (err) => {
+    error('Something went wrong');
+    console.warn(err);
+  };

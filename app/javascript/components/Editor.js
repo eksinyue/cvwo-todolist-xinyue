@@ -5,6 +5,8 @@ import TodoList from './TodoList';
 import PropTypes from 'prop-types';
 import PropsRoute from './PropsRoute';
 import Todo from './Todo';
+import { Switch } from 'react-router-dom';
+import TodoForm from './TodoForm';
 
 class Editor extends React.Component {
   constructor(props) {
@@ -36,8 +38,11 @@ class Editor extends React.Component {
       <div>
         <Header />
         <div className="grid">
-        <TodoList todos={todos} activeId={Number(todoId)}/>
-        <PropsRoute path="/todos/:id" component={Todo} todo={todo} />
+          <TodoList todos={todos} activeId={Number(todoId)}/>
+          <Switch>
+              <PropsRoute path="/todos/new" component={TodoForm} />
+              <PropsRoute path="/todos/:id" component={Todo} todo={todo} />
+          </Switch>
         </div>
       </div>
     );

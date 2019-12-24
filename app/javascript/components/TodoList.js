@@ -24,13 +24,18 @@ class TodoList extends React.Component {
   render() {
     return (
 
-      <div className="main"><div className="todolist">
-        <h2>Todos</h2>
-        <ul>
-        {this.renderTodos()}
-        </ul>
-      </div></div>
-      
+      <div className="main">
+        <div className='maxwidth container'>
+          <h2>
+            Todos <Link className='btn more' to="/todos/new"> + </Link> 
+            <Link className='btn more' to="/todos"> ← </Link>
+          </h2>
+        </div>
+        <div className="todolist">
+          <ul>{this.renderTodos()}</ul>
+        </div>
+      </div>
+
     );
   }
 }

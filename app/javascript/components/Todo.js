@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const Todo = ({ todo }) => (
@@ -25,6 +26,7 @@ const Todo = ({ todo }) => (
         {todo.done ? 'yes' : 'no'}
       </li>
     </ul>
+    <Link className='btn more' to="/todos"> ← </Link>
   </div></div>
 );
 

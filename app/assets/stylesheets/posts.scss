@@ -33,7 +33,6 @@ h1 {
 .container a {
     text-decoration: none;
     float: right;
-
 }
 
 form {
@@ -90,6 +89,10 @@ button.btn:hover,.btn:hover {
     padding:5px 7px;
 }
 
+.sort {
+    font-size: 15px;
+    float: left;
+}
 
 .notes {
     font-size: 10px;

@@ -7,7 +7,7 @@ class TodoList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: '',
+      searchTerm: ''
     };
 
     this.searchInput = React.createRef();
@@ -31,17 +31,22 @@ class TodoList extends React.Component {
 
   renderTodos() {
     const { activeId, todos } = this.props;
-    const filteredTodos = todos
+    const sortTodos = todos
     .filter(el => this.matchSearchTerm(el))
     .sort(
-      (a, b) => new Date(b.todo_date) - new Date(a.todo_date),
+      (a, b) => new Date(b.created_at) - new Date(a.created_at),
+    )
+    .sort(
+      (a, b) => new Date(a.todo_date) - new Date(b.todo_date),
     );
+    const filteredTodos = (sortTodos.filter(todo => !todo.done))
+    .concat(sortTodos.filter(todo => todo.done));
 
     return filteredTodos.map(todo => (
       <li key={todo.id} className={todo.done ? 'tododone' : ''} >
         <Link to={`/todos/${todo.id}`} className={activeId === todo.id ? 'active' : ''}>
           {todo.todo_date}
-          {' - '}
+          {todo.todo_date === null ? '' : ' - '}
           {todo.todo_type}
         </Link>
       </li>

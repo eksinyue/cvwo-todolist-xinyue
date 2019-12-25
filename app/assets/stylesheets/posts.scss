@@ -90,6 +90,7 @@ button.btn:hover,.btn:hover {
     padding:5px 7px;
 }
 
+
 .notes {
     font-size: 10px;
 }
@@ -209,6 +210,18 @@ li:nth-child(11) {
     //padding: 0px 0px 0px;
     outline: 0;
 }
+
+.tododone {
+    text-decoration: line-through;
+}
+
+.tododone a {
+    color: #656565;;
+}
+
+li.tododone:hover, .tododone a.active {
+    background: #dee0df;
+  }
 
 @media (min-width: 768px){
     .todolist {
@@ -370,5 +383,4 @@ h2 a:hover {
 .form-actions a:hover {
   text-decoration: underline;
 }
-
 

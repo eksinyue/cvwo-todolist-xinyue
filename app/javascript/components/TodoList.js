@@ -38,7 +38,7 @@ class TodoList extends React.Component {
     );
 
     return filteredTodos.map(todo => (
-      <li key={todo.id}>
+      <li key={todo.id} className={todo.done ? 'tododone' : ''} >
         <Link to={`/todos/${todo.id}`} className={activeId === todo.id ? 'active' : ''}>
           {todo.todo_date}
           {' - '}

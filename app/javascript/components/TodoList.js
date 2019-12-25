@@ -25,7 +25,7 @@ class TodoList extends React.Component {
     const { searchTerm } = this.state;
   
     return Object.values(rest).some(
-      value => value.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
+      value => (value||'').toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
     );
   }
 

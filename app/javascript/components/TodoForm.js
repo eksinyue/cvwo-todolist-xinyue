@@ -84,7 +84,7 @@ class TodoForm extends React.Component {
   render() {
     const { todo } = this.state;
     const { path } = this.props;
-    const title = todo.id ? `${todo.todo_date} - ${todo.todo_type}` : 'New Event';
+    const title = todo.id ? `${todo.todo_date} - ${todo.todo_type}` : 'New Todo';
 
     return (
       <div>

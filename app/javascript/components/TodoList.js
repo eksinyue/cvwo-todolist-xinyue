@@ -8,7 +8,7 @@ class TodoList extends React.Component {
     super(props);
     this.state = {
       searchTerm: '',
-      sortBy: 'due',
+      sortBy: 'created',
     };
 
     this.searchInput = React.createRef();
@@ -57,10 +57,13 @@ class TodoList extends React.Component {
     return filteredTodos.map(todo => (
       <li key={todo.id} className={todo.done ? 'tododone' : ''} >
         <Link to={`/todos/${todo.id}`} className={activeId === todo.id ? 'active' : ''}>
+          <span>
           {todo.todo_type}
+          <b>
           {todo.todo_date === null ? '' : '    - '}
           {todo.todo_date}
-          
+          </b>
+          </span>
         </Link>
       </li>
     ));
@@ -73,13 +76,11 @@ class TodoList extends React.Component {
         <div className='maxwidth container'>
           <h2>
             Todos <Link className='btn more' to="/todos/new"> + </Link> 
-            <Link className='btn more' to="/todos"> ← </Link>
+            <Link className='btn more' to="/todos"> ≡ </Link>
           </h2>
           
             <Link className='btn more sort' type='button' onClick={()=>this.updateSortBy('created')}> by created date </Link>
             <Link className='btn more sort' type='button' onClick={()=>this.updateSortBy('due')}> sort by due date </Link> 
-            <Link className='btn more sort' type='button' onClick={()=>this.updateSortBy('created')}> undone </Link>
-            <Link className='btn more sort' type='button' onClick={()=>this.updateSortBy('due')}> ALL </Link> 
           
         </div>
         

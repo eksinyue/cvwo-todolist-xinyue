@@ -43,7 +43,7 @@ form input[type=text] {
     background:#f0f0f0;
     border:none;
     border-left:2px solid #fff;
-    font-size:27px;
+    font-size:20px;
     font-family:Montserrat, sans-serif;
     transition:background 2s border-left 2s;
     padding: 20px;
@@ -70,15 +70,15 @@ button.btn,.btn {
     border:none;
     color:#00f28f;
     cursor:pointer;
-    font-size:27px;
+    font-size:22px;
     transition:background 2s color 1s;
-    padding:20px 24px;
+    padding:17px 20px;
     text-decoration: none;
 }
 
 button.btn:hover,.btn:hover {
     background:#00f28f;
-    color:#fff;
+    color: black;
     transition:background 2s color 1s;
     text-decoration: none;
 }
@@ -92,6 +92,12 @@ button.btn:hover,.btn:hover {
 .sort {
     font-size: 15px;
     float: left;
+}
+
+button.save {
+    float: right;
+    color: black;
+    font-weight: bold;
 }
 
 .notes {
@@ -210,6 +216,11 @@ li:nth-child(10) {
     outline: 0;
 }
 
+span b {
+    font-size: 20px;
+    font-weight: normal;
+}
+
 .tododone {
     text-decoration: line-through;
 }
@@ -259,6 +270,14 @@ li.tododone:hover, .tododone a.active {
     float: right;
 }
 
+.todo h2 {
+    margin-bottom: 50px;
+}
+
+.todo li {
+    font-size: 25px;
+}
+
 @media (min-width: 768px){
     .todo {
     width:750px;
@@ -291,10 +310,11 @@ li.tododone:hover, .tododone a.active {
 label > strong {
   display: inline-block;
   vertical-align: top;
-  text-align: right;
-  width: 100px;
-  margin-right: 6px;
-  font-size: 15px;
+  text-align: left;
+  width: 500px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
 }
 
 
@@ -306,19 +326,33 @@ input, textarea {
 }
 
 
-input[type="checkbox"] {
-  width: 13px;
+.todoform input[type="checkbox"] {
+    position: relative;
+	margin-right: 10px;
+    -webkit-appearance: none;
+    float: left;
+    margin-left: 10px;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	outline: none;
+	cursor: pointer;
+	font-weight: bold;
 }
 
-button[type="submit"] {
-  background: #f57011;
-  border: none;
-  padding: 5px 25px 8px;
-  font-weight: 500;
-  color: white;
-  cursor: pointer;
-  margin: 10px 0 0 106px;
+.todoform input[type="checkbox"]:checked:after {
+	color: #00f28f;
+	content: "\2713";
+	display: block;
+	font-size: 17px;
+	height: 17px;
+	position: absolute;
+	width: 17px;
+	left: 0.5px;
+	bottom: 2px;
 }
+
 
 .errors {
   border: 1px solid red;

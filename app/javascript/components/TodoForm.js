@@ -84,7 +84,7 @@ class TodoForm extends React.Component {
   render() {
     const { todo } = this.state;
     const { path } = this.props;
-    const title = todo.id ? `${todo.todo_date} - ${todo.todo_type}` : 'New Todo';
+    const title = todo.id ? `${todo.todo_type}` : 'New Todo';
 
     return (
       <div>
@@ -95,7 +95,7 @@ class TodoForm extends React.Component {
         <form className="todoform" onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="todo_type">
-              <strong>Type:</strong>
+              <strong>I need to ...</strong>
               <input type="text" id="todo_type" name="todo_type"
                     onChange={this.handleInputChange}
                     value={todo.todo_type}
@@ -105,7 +105,7 @@ class TodoForm extends React.Component {
 
           <div>
             <label htmlFor="todo_date">
-                <strong>Date:</strong>
+                <strong>It is due on ...</strong>
                 <input
                 type="text"
                 id="todo_date"
@@ -120,16 +120,16 @@ class TodoForm extends React.Component {
 
           <div>
             <label htmlFor="done">
-              <strong>Done:</strong>
+              <strong>It is done !!</strong>
               <input type="checkbox" id="done" name="done" 
                     onChange={this.handleInputChange}
                     checked={todo.done}
                     />
             </label>
           </div>
-          <div className="form-actions">
-            <button type="submit">Save</button>
-          </div>
+
+            <button className='btn save' type="submit">Save</button>
+
         </form>
       </div>
     );

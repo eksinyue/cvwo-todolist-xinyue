@@ -30,6 +30,8 @@ class Api::TodosController < ApplicationController
         :id,
         :todo_type,
         :todo_date,
+        :title,
+        :description,
         :done
       )
     end

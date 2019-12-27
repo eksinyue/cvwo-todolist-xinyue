@@ -58,7 +58,7 @@ class TodoList extends React.Component {
       <li key={todo.id} className={todo.done ? 'tododone' : ''} >
         <Link to={`/todos/${todo.id}`} className={activeId === todo.id ? 'active' : ''}>
           <span>
-          {todo.todo_type}
+          {todo.title}
           <b>
           {todo.todo_date === null ? '' : '    - '}
           {todo.todo_date}

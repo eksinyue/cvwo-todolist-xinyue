@@ -88,7 +88,7 @@ class TodoList extends React.Component {
           <form className='searchbar'>
               <input
                 type="text"
-                placeholder="Search (by title, due date ...)"
+                placeholder="Search (by title, due date, description, type...)"
                 ref={this.searchInput}
                 onKeyUp={this.updateSearchTerm}
               />

@@ -84,7 +84,7 @@ class TodoForm extends React.Component {
   render() {
     const { todo } = this.state;
     const { path } = this.props;
-    const title = todo.id ? `${todo.todo_type}` : 'New Todo';
+    const title = todo.id ? `${todo.title}` : 'New Todo';
 
     return (
       <div>
@@ -94,11 +94,11 @@ class TodoForm extends React.Component {
 
         <form className="todoform" onSubmit={this.handleSubmit}>
           <div>
-            <label htmlFor="todo_type">
+            <label htmlFor="title">
               <strong>I need to ...</strong>
-              <input type="text" id="todo_type" name="todo_type"
+              <input type="text" id="title" name="title"
                     onChange={this.handleInputChange}
-                    value={todo.todo_type}
+                    value={todo.title}
                      />
             </label>
           </div>
@@ -115,6 +115,26 @@ class TodoForm extends React.Component {
                 value={todo.todo_date}
                 onChange={this.handleInputChange}
                 />
+            </label>
+          </div>
+
+          <div>
+            <label htmlFor="description">
+              <strong>description:</strong>
+              <input type="text" id="description" name="description"
+                    onChange={this.handleInputChange}
+                    value={todo.description}
+                     />
+            </label>
+          </div>
+
+          <div>
+            <label htmlFor="todo_type">
+              <strong>type:</strong>
+              <input type="text" id="todo_type" name="todo_type"
+                    onChange={this.handleInputChange}
+                    value={todo.todo_type}
+                     />
             </label>
           </div>
 
@@ -145,6 +165,8 @@ TodoForm.defaultProps = {
 todo: {
     todo_type: '',
     todo_date: '',
+    title: '',
+    description: '',
     done: false,
 },
 };

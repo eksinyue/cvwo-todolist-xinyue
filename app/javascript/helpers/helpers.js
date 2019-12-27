@@ -14,8 +14,8 @@ export const formatDate = (d) => {
   export const validateTodo = (todo) => {
     const errors = {};
   
-    if (todo.todo_type === '') {
-      errors.todo_type = 'You must enter a todo type';
+    if (todo.title === '') {
+      errors.title = 'You must enter a title !!';
     }
   
     return errors;

@@ -58,7 +58,7 @@ class TodoList extends React.Component {
       <li key={todo.id} className={todo.done ? 'tododone' : ''} >
         <Link to={`/todos/${todo.id}`} className={activeId === todo.id ? 'active' : ''}>
           <span>
-          {todo.todo_type}
+          {todo.title}
           <b>
           {todo.todo_date === null ? '' : '    - '}
           {todo.todo_date}
@@ -88,7 +88,7 @@ class TodoList extends React.Component {
           <form className='searchbar'>
               <input
                 type="text"
-                placeholder="Search (by title, due date ...)"
+                placeholder="Search (by title, due date, description, type...)"
                 ref={this.searchInput}
                 onKeyUp={this.updateSearchTerm}
               />

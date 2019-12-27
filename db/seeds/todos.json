@@ -1,22 +1,30 @@
 [
     {
-      "todo_type": "Symposium",
+      "todo_type": "school",
       "todo_date": "2018-05-01",
+      "title": "this is a title",
+      "description": "this is a description",
       "done": true
     },
     {
-      "todo_type": "Colloquium",
+      "todo_type": "chores",
       "todo_date": "2018-04-01",
+      "title": "this is a title",
+      "description": "this is a description",
       "done": true
     },
     {
-      "todo_type": "Symposium",
+      "todo_type": "chores",
       "todo_date": "2018-04-01",
+      "title": "this is a title",
+      "description": "this is a description",
       "done": true
     },
     {
-      "todo_type": "Colloquium",
+      "todo_type": "work",
       "todo_date": "2017-05-01",
-      "done": true
+      "title": "this is a title",
+      "description": "this is a description",
+      "done": false
     }
   ]

@@ -1,30 +1,30 @@
 [
     {
       "todo_type": "school",
-      "todo_date": "2018-05-01",
-      "title": "this is a title",
-      "description": "this is a description",
-      "done": true
+      "todo_date": "2019-12-30",
+      "title": "do homework",
+      "description": "math assignment",
+      "done": false
     },
     {
       "todo_type": "chores",
-      "todo_date": "2018-04-01",
-      "title": "this is a title",
-      "description": "this is a description",
+      "todo_date": "2019-12-15",
+      "title": "do laundry",
+      "description": "separate clothes of different colours",
       "done": true
     },
     {
-      "todo_type": "chores",
-      "todo_date": "2018-04-01",
-      "title": "this is a title",
-      "description": "this is a description",
-      "done": true
+      "todo_type": "urgent",
+      "todo_date": "2019-12-27",
+      "title": "send mails",
+      "description": "to grandparents",
+      "done": false
     },
     {
       "todo_type": "work",
-      "todo_date": "2017-05-01",
-      "title": "this is a title",
-      "description": "this is a description",
-      "done": false
+      "todo_date": "2019-12-01",
+      "title": "complete project",
+      "description": "skype meeting the team",
+      "done": true
     }
   ]

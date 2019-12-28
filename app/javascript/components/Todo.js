@@ -27,7 +27,7 @@ const Todo = ({ todo, onDelete }) => (
         {todo.description}
       </li>
       <li>
-        <strong>type:</strong>
+        <strong>tag:</strong>
         {' '}
         {todo.todo_type}
       </li>

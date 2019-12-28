@@ -95,8 +95,9 @@ class TodoForm extends React.Component {
         <form className="todoform" onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="title">
-              <strong>I need to ...</strong>
+              <strong>title:</strong>
               <input type="text" id="title" name="title"
+                    placeholder="I need to ..."
                     onChange={this.handleInputChange}
                     value={todo.title}
                      />
@@ -105,11 +106,12 @@ class TodoForm extends React.Component {
 
           <div>
             <label htmlFor="todo_date">
-                <strong>It is due on ...</strong>
+                <strong>due date:</strong>
                 <input
                 type="text"
                 id="todo_date"
                 name="todo_date"
+                placeholder="It is due on ..."
                 ref={this.dateInput}
                 autoComplete="off"
                 value={todo.todo_date}
@@ -122,6 +124,7 @@ class TodoForm extends React.Component {
             <label htmlFor="description">
               <strong>description:</strong>
               <input type="text" id="description" name="description"
+                    placeholder="any further details on this task?"
                     onChange={this.handleInputChange}
                     value={todo.description}
                      />
@@ -130,8 +133,9 @@ class TodoForm extends React.Component {
 
           <div>
             <label htmlFor="todo_type">
-              <strong>type:</strong>
+              <strong>tag:</strong>
               <input type="text" id="todo_type" name="todo_type"
+                    placeholder="work? school? personal? urgent? ..."
                     onChange={this.handleInputChange}
                     value={todo.todo_type}
                      />

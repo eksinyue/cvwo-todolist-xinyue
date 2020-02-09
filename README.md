@@ -1,28 +1,17 @@
-# HE Xinyue
-# A0204712U
+# Name 
+HE Xinyue
 
-# README
+# Matriculation Number
+A0204712U
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# GitHub Page
+https://github.com/eksinyue/cvwo-todolist-xinyue
 
-Things you may want to cover:
+# Additional notes
 
-* Ruby version
+To run the programme on local machine:
+Clone or Download the repository from Github
+run “rails db:migrate” & “rails db:seed” 
+run “rails s”
+open http://localhost:3000 in browser to view the website locally
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# cvwo-todolist-xinyue

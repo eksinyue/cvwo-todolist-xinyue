@@ -79,8 +79,8 @@ class TodoList extends React.Component {
             <Link className='btn more' to="/todos"> ≡ </Link>
           </h2>
           
-            <Link className='btn more sort' type='button' onClick={()=>this.updateSortBy('created')}> by created date </Link>
-            <Link className='btn more sort' type='button' onClick={()=>this.updateSortBy('due')}> sort by due date </Link> 
+            <Link to="/todos" className='btn more sort' type='button' onClick={()=>this.updateSortBy('created')}> by created date </Link>
+            <Link to="/todos" className='btn more sort' type='button' onClick={()=>this.updateSortBy('due')}> sort by due date </Link> 
           
         </div>
         

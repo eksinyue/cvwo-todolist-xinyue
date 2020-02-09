@@ -7,7 +7,7 @@ const Todo = ({ todo, onDelete }) => (
     <h2>
       {todo.title}
       {"  "}
-      <Link className='btn more' type="button" onClick={() => onDelete(todo.id)}> ✖ </Link>
+      <Link to="/todos" className='btn more' type="button" onClick={() => onDelete(todo.id)}> ✖ </Link>
       <Link className='btn more' to={`/todos/${todo.id}/edit`}> ✎ </Link>
     </h2>
     <ul>

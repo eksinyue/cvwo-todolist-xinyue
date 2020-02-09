@@ -12,20 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2019_12_23_081314) do
 
-  create_table "notes", force: :cascade do |t|
-    t.string "subtask"
-    t.integer "post_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_notes_on_post_id"
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.string "task"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "todos", force: :cascade do |t|
     t.string "todo_type"
     t.date "todo_date"
@@ -36,5 +22,4 @@ ActiveRecord::Schema.define(version: 2019_12_23_081314) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "notes", "posts"
 end
